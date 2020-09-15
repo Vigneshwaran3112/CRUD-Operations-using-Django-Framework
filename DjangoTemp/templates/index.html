@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Templates</title>
+	{% load static %}
+	<link rel="stylesheet" type="text/css" href="{% static 'style.css' %}">
+<style type="text/css">
+.view{
+	background: darkcyan;
+	width: 75px;
+	font-size: 15px;
+	border:none;
+	outline: none;
+	border-radius: 5px;
+	cursor: pointer;
+	padding: 2px;
+}
+
+.view:hover{
+	background: MediumAquaMarine;
+	width:150px;
+}
+
+a{
+	text-decoration: none;
+	color: white;
+}
+h3{
+	color: #606060;
+}
+</style>
+</head>
+<body>
+	<center>
+	<div>
+		<form action="/" method="POST">
+			{% csrf_token %}
+			<h3>User registration form</h3>
+			<input type="text" name="name" placeholder="enter your name..."><br/><br/>
+			<input type="number" name="mobile" placeholder="enter mobile number..."><br/><br/>
+			<input type="email" name="email" placeholder="enter your emailid"><br/><br/>
+			<input type="submit" value="submit"><br/><br/>
+		</form>
+
+		<button class="view" type="button"><a href="{% url 'display' %}">view</a></button>
+	</div>
+</center>
+</body>
+</html>

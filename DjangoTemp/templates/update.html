@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>update</title>
+	{% load static %}
+	<link rel="stylesheet" type="text/css" href="{% static 'style.css' %}">
+</head>
+<body>
+<div>
+	<form action="/update/{{ users.id }}" method="POST">
+		{% csrf_token %}
+		<input type="text" name="name" placeholder="update name" value="{{ users.name }}"><br/><br/>
+		<input type="number" name="mobile" placeholder="update mobile number" value="{{ users.mobile }}"><br/><br/>
+		<input type="email" name="email" placeholder="update email" value="{{ users.email }}"><br/><br/>
+		<input type="submit" value="update"><br/><br/>
+	</form>
+</div>
+</body>
+</html>

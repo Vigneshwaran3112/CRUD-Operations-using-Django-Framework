@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Display</title>
+	{% load static %}
+	<link rel="stylesheet" type="text/css" href="{% static 'style.css' %}">
+<style type="text/css">
+.edit{
+	background: MediumSeaGreen;
+	width: 75px;
+	font-size: 15px;
+	border:none;
+	outline: none;
+	border-radius: 5px;
+	cursor: pointer;
+	padding: 2px;
+}
+
+.edit:hover{
+	background: MediumAquaMarine;
+	width:110px;
+}
+
+.delete{
+	background: Tomato;
+	width: 75px;
+	font-size: 15px;
+	border:none;
+	outline: none;
+	border-radius: 5px;
+	cursor: pointer;
+	padding: 2px;
+}
+
+.delete:hover{
+	background: LightCoral;
+	width:110px;
+}
+
+.create{
+	background: ForestGreen;
+	width: 145px;
+	font-size: 15px;
+	border:none;
+	outline: none;
+	border-radius: 5px;
+	cursor: pointer;
+	float: left;
+	padding: 2px;
+}
+
+.create:hover{
+	width:160px;
+	font-size: 17px;
+}
+
+a{
+	text-decoration: none;
+	color: white;
+}
+
+table{
+	float: left;
+}
+
+td{
+	background: WhiteSmoke;
+	border-radius: 5px;
+	color: #696969;
+}
+
+th{
+	color: #484848;
+}
+
+div{
+	border: none;
+	outline: none;
+	width: 750px;
+	height: auto;
+}
+h3{
+	color: #606060;
+}
+</style>
+</head>
+<body>
+<center>
+<div>
+<h3>Registered users list</h3>
+<table>
+
+	<thead>
+		<tr>
+			<th>Name</th>
+			<th>Mobile</th>
+			<th>Email</th>
+			<th> </th>
+		</tr>
+	</thead>
+
+
+	<tbody>
+		{% for s in users %}
+	<tr>
+		<td>{{ s.name }}</td>
+		<td>{{ s.mobile }}</td>
+		<td>{{ s.email }}</td>
+		<td>
+			<button class="edit" type="button"><a href="/edit/{{ s.id }}">update</a></button>
+			<button class="delete" type="button"><a href="/delete/{{ s.id }}">delete</a></button>
+		</td>
+	</tr>
+		{% endfor %}
+	</tbody>
+	
+</table>
+</div>
+<div>
+<button class="create" type="button"><a href="{% url 'create' %}">create new user</a></button>
+</div>
+</center>
+
+</body>
+</html>
